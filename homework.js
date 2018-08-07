@@ -92,13 +92,16 @@ function selectionSort(array){
 // and returns an object with the keys "name" and "dob" (date of birth) with
 // those values.
 function createUser(name, dob){
-
+    var people = {};
+    people.name = name;
+    people.dob = dob;
+    return people
 }
 
 // 7. Create a function called "calculateAge" that takes a user created from
 // createUser and a Date object considered the current date, and calculates the user's
 // age in years on that date. You can use your code from yesterday's homework.
-
+function calculateAge(user)
 // 8. Create a function called "addAge" that takes a user created from createUser
 // and a Date object and adds a new key on the user object, "age", with the age
 // in years the user was on that date.
