@@ -30,30 +30,29 @@ function average (numbers) {
 // returns a new array that contains the elements found in both arrays.
 // The order they are in does not matter, but no duplicates should be
 // in the returned array, even if they were in the input.
-function intersections(arr1, arr2) {
-  var newArray = [];
-  var intArr = [];
 
-  for (i = 0; i < arr1.length; i++) {
-    newArray.push(arr1[i]);
-  }
-  for (i = 0; i < arr2.length; i++) {
-    newArray.push(arr2[i]);
-  }
-  
-  for (i = 0; i < newArray.length; i++) {
-  newArray.sort(function (a, b) { return a - b });
-    if (newArray[i] === newArray[i - 1]) {
-      intArr.push(newArray[i])
+function intersection(arr1, arr2) {
+  var newArray = [];
+  for (var i = 0; i < arr1.length; i++) { 
+    for (var j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        newArray.push(arr1[i])
+      }
     }
   }
-  if (intArr.length === 0){
-    return
-  }
-  return intArr;
+  return newArray;
 }
 // 4. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
+function minimum(array) {
+  var min;
+ for (var i = 0; i < array.length; i++) {
+  if (typeof(min) === 'undefined' || array[i] < min) {
+    min = array[i];
+  }
+}
+  return min;
+}
 
 // 5. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
@@ -78,10 +77,23 @@ function intersections(arr1, arr2) {
 // Note 2: Selection sort can be implemented using one array. Read the explanation at
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
-
+function selectionSort(array){
+  var arrayCopy = array.slice(0);
+  var sortedArray= [];
+  for (var i=0; i<array.length; i++){
+      sortedArray.push(minimum(arrayCopy))
+      var remove = arrayCopy.indexOf(minimum(arrayCopy))
+      arrayCopy.splice(remove, 1) 
+    }
+  
+    return sortedArray;
+  }
 // 6. Create a function called "createUser" that takes a name and a Date object
 // and returns an object with the keys "name" and "dob" (date of birth) with
 // those values.
+function createUser(name, dob){
+
+}
 
 // 7. Create a function called "calculateAge" that takes a user created from
 // createUser and a Date object considered the current date, and calculates the user's
