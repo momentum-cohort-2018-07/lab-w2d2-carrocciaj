@@ -125,6 +125,7 @@ function addAge(user, age){
 // 9. Create a function called "createUsers" that takes two arrays of equal
 // length, the first being a list of names and the second being a list of dates of
 // birth, and returns a new array of objects created from those original arrays.
+
 function createUsers(arr1, arr2) {
   var users = [];
   // var name = {name: 1}
@@ -143,6 +144,16 @@ function createUsers(arr1, arr2) {
 // a Date object and returns the average age in years of the users on that date.
 // You do not have to handle the situation in which the current date is before
 // a user's date of birth.
-function averageAge(){
-  
+function averageAge(user, date){
+  var ageTotal = 0
+  // var age = 0
+  if (user.length === 0){
+    return
+  } else {
+  for (var i = 0; i<user.length; i++){
+  var age = howOld(user[i].dob, date);
+  ageTotal += age
+  }
+}
+  return ageTotal/user.length
 }
