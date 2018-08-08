@@ -101,16 +101,48 @@ function createUser(name, dob){
 // 7. Create a function called "calculateAge" that takes a user created from
 // createUser and a Date object considered the current date, and calculates the user's
 // age in years on that date. You can use your code from yesterday's homework.
-function calculateAge(user)
+
+function howOld(birth, current) {
+  var dateToMilliseconds = current.getTime() - birth.getTime();
+  var year = Math.floor(dateToMilliseconds/31557600000)
+  if (year >= 0){
+    return Math.floor(year)
+    } else {
+       return 
+        }
+     }
+
+function calculateAge(person, dob){ 
+return howOld(person.dob, dob);
+}
 // 8. Create a function called "addAge" that takes a user created from createUser
 // and a Date object and adds a new key on the user object, "age", with the age
 // in years the user was on that date.
-
+function addAge(user, age){
+   user.age = howOld(user.dob, age)
+   return user  
+}
 // 9. Create a function called "createUsers" that takes two arrays of equal
 // length, the first being a list of names and the second being a list of dates of
 // birth, and returns a new array of objects created from those original arrays.
+function createUsers(arr1, arr2) {
+  var users = [];
+  // var name = {name: 1}
+  // var date = {dob: 2}
+    for(var i = 0; i<arr1.length, i<arr2.length; i++){
+        var user = {}
+        user.name = arr1[i];
+        user.dob = arr2[i];
+        users.push(user)
 
+     }
+
+  return users
+}
 // 10. Create a function called "averageAge" that takes an array of users and
 // a Date object and returns the average age in years of the users on that date.
 // You do not have to handle the situation in which the current date is before
 // a user's date of birth.
+function averageAge(){
+  
+}
